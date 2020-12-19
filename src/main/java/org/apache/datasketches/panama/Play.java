@@ -19,14 +19,36 @@
 
 package org.apache.datasketches.panama;
 
+import jdk.incubator.foreign.MemoryAddress;
+import jdk.incubator.foreign.MemorySegment;
+
 /**
- * blah
+ *
+ * @author Lee Rhodes
  */
 //@SuppressWarnings("javadoc")
 public class Play {
 
-  int sum(int a, int b) {
-    return a + b;
+  /**
+   * blah
+   */
+  public static void checkMemorySegment() {
+    try (MemorySegment seg = MemorySegment.allocateNative(4 * 64)) {
+      MemoryAddress adr = seg.address();
+      long longAdr = adr.toRawLongValue();
+
+      println("" + longAdr);
+    }
   }
+
+  /**
+   * blah
+   * @param args blah
+   */
+  public static void main(String[] args) {
+    Play.checkMemorySegment();
+  }
+
+  static void println(Object o) { System.out.println(o); }
 
 }

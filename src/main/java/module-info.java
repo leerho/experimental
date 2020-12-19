@@ -18,8 +18,9 @@
  */
 
 /**
- * blah
+ * @author lrhodes
  */
-module main {
-  exports main;
+module org.apache.datasketches.panama {
+  requires java.base;
+  requires jdk.incubator.foreign;
 }
